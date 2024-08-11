@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% if v.errors %}
+        <p>
+            数据出错啦，错误信息：{{ v.errors }}
+        </p>
+    {% else %}
+        <form action="" method="post">
+            
+        {% csrf_token %}
+            <table>
+                
+                {{ v | crispy }}
+            </table>
+            
+            <button type="submit" class="btn btn-success">请你们确认每一项都有人检查过了，然后按键提交</button>
+        </form>
+    {% endif %}
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock %}
