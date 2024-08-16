@@ -187,4 +187,4 @@ class Dorminspect(models.Model):
 
 @receiver(pre_save,sender=Dorminspect)
 def calculate_score(sender,instance,**kwargs):
-    instance.score = Decimal(9.0) - Decimal(0.2)*(instance.ctjh + instance.ctzw + instance.ckjh + instance.ccjh + instance.scbzj + instance.mjh + instance.blct + instance.blbzj + instance.mc)
+    instance.score = Decimal(9.0) - Decimal(0.2)*(instance.ctjh + instance.ctzw + instance.ckjh + instance.ccjh  + instance.mjh + instance.blct + instance.blbzj + instance.mc) - Decimal(0.1)*(int(instance.zszw1)+ int(instance.scbzj)) 
