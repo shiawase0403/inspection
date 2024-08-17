@@ -32,6 +32,7 @@ def index(request):
             print(error_msg)
             return render(request, 'index.html', locals())
 
+
 def download1(request):
     file_path = BASE_DIR / 'index/static/给老师的数据.xlsx'
     try:
@@ -40,7 +41,7 @@ def download1(request):
         return r
     except Exception:
         raise Http404('Download Error')
-    
+
 
 
 def download2(request):
